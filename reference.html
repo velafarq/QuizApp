@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Quicksand" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <title>A South African Quiz</title>
+</head>
+<body>
+
+  <!-- Nav bar -->
+<header role='banner'>
+<nav role='navigation'>
+  <a href="index.html"><i class="fas fa-home fa-3x"></i></a>
+</nav>
+</header>
+
+<!-- end nav bar -->
+
+<!-- title and start button -->
+<section role="region" class="title">
+    <h1>How Much Do You Know About South Africa?</h1>
+   <button type='button' class='begin-button'>Begin!</button>
+</section>
+<!-- end title and start button -->
+
+<!-- Question page -->
+
+<section class="container">
+  <form>
+    <div class='info'>
+      <h2>What is Biltong?</h2>
+      <h3>Question: 1/10</h3>
+  </div>
+    <fieldset name='answers'>
+      <div>
+        <input type="radio" id="1" name="answers">
+        <label for="1">My Uncle Bill's tongs</label>
+      </div>
+
+      <div>
+        <input type="radio" id="2" name="answers">
+        <label for="2">A tart dried apricot that goes well with white wine
+        </label>
+      </div>
+
+      <div>
+          <input type="radio" id="3" name="answers">
+          <label for="3">Meat covered in spices and air dried until its mouth wateringly delicious
+          </label>
+      </div>
+
+      <div>
+          <input type="radio" id="4" name="answers">
+          <label for="4">An event of really large tractors
+          </label>
+      </div>
+
+    </fieldset>
+    <div class='info'>
+    <button type="submit">Submit</button>
+    <h3>Score: 0/10 correct</h3>
+  </div>
+  </form>
+</section>
+
+<!-- feedback page -->
+
+
+<div class='feedback'>
+  <h2>You were correct!/ Better luck next time...</h2>
+  <p>The correct answer is .........</p>
+  <div class="button-section">
+    <button type="button" class="begin-button">Onward!</button>
+  </div>
+</div>
+
+<!--Results page -->
+<div class='feedback'>
+  <h2>Congratulations!</h2>
+  <h3>You scored 10/10</h3>
+  <p>It looks like you would fit right in.</p>
+  <p>Want to retake the quiz?</p>
+  <div class="button-section">
+  <button type="reset" class="begin-button">Yes, please!</button>
+  </div>
+
+</div>
+
+</body>
+</html>

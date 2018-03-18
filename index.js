@@ -7,9 +7,10 @@ const data = [
   question: 'What is biltong?',
   answer1: 'My Uncle Bill’s tongs',
   answer2: 'A tart dried apricot that goes well with white wine',
-  answer3: "Meat covered in spices and air dried until it's mouth-wateringly delicious",
+  answer3: "Meat covered in spices and air dried until it is mouth-wateringly delicious",
   answer4: 'An event of really large tractors',
-  correctAnswer: "Meat covered in spices and air dried until it's mouth-wateringly delicious",
+  correctAnswer: "Meat covered in spices and air dried until it is mouth-wateringly delicious",
+
 },
 {
 

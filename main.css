@@ -27,10 +27,9 @@ background-repeat: no-repeat;
     background-position: right;
     background-size: cover;
     background-attachment: fixed;
-
-
   }
 }
+
 /* navigation area */
 header nav {
 background-color: #F6B942;
@@ -39,7 +38,6 @@ justify-content: space-between;
 align-items: center;
 flex-direction: row;
 width: 100vw;
-
 box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 
 }
@@ -65,6 +63,8 @@ header > nav > h3 {
   color: white;
 
 }
+
+/* mobile defaults */
 
 @media only screen and (max-width: 800px){
   header nav {
@@ -133,9 +133,12 @@ button:hover{
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 50vw;
+  margin: auto;
   color: white;
   background-color: #8DAE86;
+  margin-top: 89px;
+  margin-bottom: 100px;
 
 }
 
@@ -194,23 +197,16 @@ input[type=radio]{
    width: 50vw;
    color: white;
    background-color: #8DAE86;
+   margin-top: 89px;
+   margin-bottom: 100px;
 
  }
 
 
-
-#main {
-  margin-top: 89px;
-  margin-bottom: 100px;
-
-}
-
 /* end feedback containers */
 
-@media only screen and (min-width: 810px) {
-.container {
-  width: 50vw;
-  margin: auto;
+@media only screen and (max-width: 810px) {
+.container, .feedback{
+  width: 100vw;
 }
-
 }

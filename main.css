@@ -21,7 +21,7 @@ background-repeat: no-repeat;
 }
 
 
-/* mobile defaults */
+/* mobile defaults for background*/
 @media only screen and (max-width: 730px) {
   body {
     background-position: right;
@@ -100,8 +100,9 @@ text-align: center;
 h2 {
   font-family: 'Quicksand', sans-serif;
 }
+/* end header */
 
-/* buttons */
+/* all buttons */
 
 button {
  font-size: 1em;
@@ -119,11 +120,9 @@ button:hover{
  background: #D04438;
 }
 
-
 /* end buttons */
 
 /* Form */
-
 
 .container {
   box-sizing: border-box;
@@ -174,9 +173,10 @@ input[type=radio]{
 
 /* end form */
 
+
 /*feedback containers */
 
-
+  /* flex parent */
 .outer-feedback {
   display: flex;
   width: 100vw;
@@ -185,6 +185,7 @@ input[type=radio]{
   align-items: center;
 }
 
+  /* flex child */
  .feedback {
    box-sizing: border-box;
    border: 25px solid transparent;
@@ -204,6 +205,7 @@ input[type=radio]{
 
 
 /* end feedback containers */
+/* mobile default */
 
 @media only screen and (max-width: 810px) {
 .container, .feedback{

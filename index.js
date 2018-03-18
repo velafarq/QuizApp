@@ -168,18 +168,24 @@ function beginQuiz() {
 
 function submitForm() {
   const answerInput = document.querySelector('input[name="answers"]:checked').value;
-
-  answerEval(answerInput);
-}
-
-// evaluating whether or not the quesiton was correctly answered //
-function answerEval(answerInput) {
   const correctAnswer = `${data[questionNum].correctAnswer}`;
 
   if (correctAnswer === answerInput) {
+    updateTextScore();
     correctAnswerFeedback();
+
   } else incorrectAnswerFeedback();
 }
+
+// evaluating whether or not the quesiton was correctly answered //
+// function answerEval(answerInput) {
+//   const correctAnswer = `${data[questionNum].correctAnswer}`;
+//
+//   if (correctAnswer === answerInput) {
+//     correctAnswerFeedback();
+//     addToScore();
+//   } else incorrectAnswerFeedback();
+// }
 
 //feedback for correct answer//
 
@@ -191,7 +197,7 @@ function correctAnswerFeedback() {
       <button type="button" class="begin-button" onclick='nextQuestionEvaluation()' id="next-question">Onward!</button>
     </div>
   </div></div>`;
-  addToScore();
+
 }
 
 //feedback for incorrect answer//
@@ -230,6 +236,13 @@ function addToScore() {
   return score++;
 }
 
+// updating the text of the score //
+
+function updateTextScore () {
+  addToScore();
+  questionNumber.innerHTML = (`&nbsp${score}`);
+}
+
 //final feedback and score, also option to begin again //
 
 function finalFeedback() {
@@ -238,7 +251,8 @@ function finalFeedback() {
   if (score > 7) {
     mainSection.innerHTML = `
     <div class='outer-feedback'><div class='feedback'>
-      <h2>Congratulations! It looks like you'd fit right in.</h2>
+      <h2>Congratulations!</h2>
+      <h2>It looks like you would fit right in.</h2>
       <h3>You scored ${score}/10</h3>
       <p>Want to retake the quiz?</p>
       <div class="button-section">
@@ -248,7 +262,8 @@ function finalFeedback() {
   } else if (score > 4) {
     mainSection.innerHTML = `
     <div class='outer-feedback'><div class='feedback'>
-      <h2>Good effort! It's nice to know there are people like you around.</h2>
+      <h2>Good effort!</h2>
+      <h2>It's nice to know there are people like you around.</h2>
       <h3>You scored ${score}/10</h3>
       <p>Want to retake the quiz?</p>
       <div class="button-section">
@@ -258,7 +273,8 @@ function finalFeedback() {
   } else {
     mainSection.innerHTML = `
     <div class='outer-feedback'><div class='feedback'>
-      <h2>Thanks for taking the quiz! Maybe visit a couple of times and then retake it.</h2>
+      <h2>Thanks for taking the quiz!</h2>
+      <h2>Maybe visit a couple of times and then retake it.</h2>
       <h3>You scored ${score}/10</h3>
       <p>Want to retake the quiz?</p>
       <div class="button-section">

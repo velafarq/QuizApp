@@ -7,9 +7,9 @@ const data = [
   question: 'What is biltong?',
   answer1: 'My Uncle Bill’s tongs',
   answer2: 'A tart dried apricot that goes well with white wine',
-  answer3: 'Meat covered in spices and air dried until its mouth wateringly delicious',
+  answer3: "Meat covered in spices and air dried until it's mouth-wateringly delicious",
   answer4: 'An event of really large tractors',
-  correctAnswer: 'Meat covered in spices and air dried until its mouthwateringly delicious',
+  correctAnswer: "Meat covered in spices and air dried until it's mouth-wateringly delicious",
 },
 {
 
@@ -21,7 +21,6 @@ const data = [
   correctAnswer: 'They don’t really know when they will do it, but it will be sometime soon, for sure',
 },
 {
-
   question: 'How many official languages does South Africa have?',
   answer1: 2,
   answer2: 5,
@@ -57,7 +56,7 @@ const data = [
   correctAnswer: 'Cyril Ramaphosa',
 },
 {
-  id: 7,
+
   question: 'What is a koeksister?',
   answer1: 'An affectionate term for sisters that are twins',
   answer2: 'A traditional Afrikaans fried dough that has been plaited and infused in honey',
@@ -100,7 +99,8 @@ const beginButton = document.getElementById('begin-button'),
       mainSection = document.getElementById('main'),
       titleElements = document.getElementById('title'),
       mainBody = document.getElementById('body'),
-      form = document.getElementById('questionForm');
+      form = document.getElementById('questionForm'),
+      questionNumber = document.getElementById('question-number');
 
 //initial values of questionNum and score//
 
@@ -110,83 +110,72 @@ let score = 0;
 //question form template//
 
 const questionTemplate = (questionNum) => {
-  if (questionNum < data.length) {
-  return  `
+  return `
     <section class="container" id='${questionNum}'>
-    <form id='questionForm'>
     <div class='info'>
       <h2>${data[questionNum].question}</h2>
-      <h3>Question: ${questionNum + 1}/10</h3>
       </div>
+    <form id='questionForm'>
     <fieldset name='answers'>
 
       <label id='flex-label'>
-        <input type="radio" id="1" name="answers">
+        <input type="radio" id="1" name="answers" value='${data[questionNum].answer1}' required>
         <span>${data[questionNum].answer1}</span>
       </label>
 
 
       <label id='flex-label'>
-        <input type="radio" id="2" name="answers">
+        <input type="radio" id="2" name="answers" value='${data[questionNum].answer2}' required>
         <span>${data[questionNum].answer2}</span>
       </label>
 
 
       <label id='flex-label'>
-          <input type="radio" id="3" name="answers">
+          <input type="radio" id="3" name="answers" value='${data[questionNum].answer3}' required>
           <span>${data[questionNum].answer3}</span>
       </label>
 
 
       <label id='flex-label'>
-          <input type="radio" id="4" name="answers">
+          <input type="radio" id="4" name="answers" value='${data[questionNum].answer4}' required>
           <span>${data[questionNum].answer4}</span>
       </label>
 
     </fieldset>
 
     <div class='info'>
-    <button type="submit">Submit</button>
+    <button type="submit" onclick='submitForm(); return false;'>Submit</button>
 
-    <h3>Score: ${score}/10 correct</h3>
+
   </div>
   </form>
+  <h3>Question: ${questionNum + 1}/10</h3>
   </section>`;
-  } else {
-    finalFeedback();
-  }
-};
+  };
 
 //function that initiates the quiz on a click//
 
 function beginQuiz() {
+  questionNum = 0;
+  score = 0;
   mainSection.innerHTML = questionTemplate(0);
   titleElements.style.display = 'none';
   mainBody.style.backgroundImage = "url('https://images.pexels.com/photos/197906/pexels-photo-197906.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')";
 }
 
-//accessing value of radio button that was checked and submitted//
-form.addEventListener('submit', function (event) {
-  event.preventDefault();
-  let answerInput = '';
-  if (document.getElementById('1').checked) {
-    answerInput = document.getElementById('1').value;
-  } else if (document.getElementById('2').checked) {
-    answerInput = document.getElementById('2').value;
-  } else if (document.getElementById('3').checked) {
-    answerInput = document.getElementById('3').value;
-  } else if (document.getElementById('4').checked) {
-    answerInput = document.getElementById('4').value;
-  }
+// submitting form and gathering input info//
+
+function submitForm() {
+  const answerInput = document.querySelector('input[name="answers"]:checked').value;
 
   answerEval(answerInput);
-});
+}
 
 // evaluating whether or not the quesiton was correctly answered //
 function answerEval(answerInput) {
-  const correct = `${data[questionNum].correctAnswer}`;
+  const correctAnswer = `${data[questionNum].correctAnswer}`;
 
-  if (correct === answerInput) {
+  if (correctAnswer === answerInput) {
     correctAnswerFeedback();
   } else incorrectAnswerFeedback();
 }
@@ -195,12 +184,12 @@ function answerEval(answerInput) {
 
 function correctAnswerFeedback() {
   titleElements.style.display = 'none';
-  mainSection.innerHTML = `<div class='feedback'>
+  mainSection.innerHTML = `<div class='outer-feedback'><div class='feedback'>
     <h2>You got it right!</h2>
     <div class="button-section">
-      <button type="button" class="begin-button" onclick='nextQuestion()' id="next-question">Onward!</button>
+      <button type="button" class="begin-button" onclick='nextQuestionEvaluation()' id="next-question">Onward!</button>
     </div>
-  </div>`;
+  </div></div>`;
   addToScore();
 }
 
@@ -208,20 +197,29 @@ function correctAnswerFeedback() {
 
 function incorrectAnswerFeedback() {
   titleElements.style.display - 'none';
-  mainSection.innerHTML = `<div class='feedback'>
+  mainSection.innerHTML = `<div class='outer-feedback'><div class='feedback'>
     <h2>Better luck next time...</h2>
-    <p>The correct answer is ${data[questionNum].correctAnswer}</p>
+    <p>The correct answer is "${data[questionNum].correctAnswer}"</p>
     <div class="button-section">
-      <button type="button" class="begin-button" onclick='nextQuestion()'>Onward!</button>
+      <button type="button" class="begin-button" onclick='nextQuestionEvaluation()'>Onward!</button>
     </div>
-  </div>`;
+  </div></div>`;
+}
+
+function nextQuestionEvaluation() {
+  if (questionNum < data.length - 1) {
+    nextQuestion();
+  } else {
+    finalFeedback();
+  }
 }
 
 //bring on the next question //
 
 function nextQuestion() {
-  const newVal = questionNum++;
-  mainSection.innerHTML = questionTemplate(newVal);
+  questionNum++;
+  questionNumber.innerHTML = (`&nbsp${score}`);
+  mainSection.innerHTML = questionTemplate(questionNum);
   titleElements.style.display = 'none';
   mainBody.style.backgroundImage = "url('https://images.pexels.com/photos/197906/pexels-photo-197906.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')";
 }
@@ -234,14 +232,37 @@ function addToScore() {
 //final feedback and score, also option to begin again //
 
 function finalFeedback() {
-  titleElements.style.display - 'none';
-  mainSection.innerHTML = `
-  <div class='feedback'>
-    <h2>Congratulations!</h2>
-    <h3>You scored ${score}/10</h3>
-    <p>Want to retake the quiz?</p>
-    <div class="button-section">
-    <button type="reset" class="begin-button" onclick='beginQuiz()'>Yes, please!</button>
-    </div>
-  </div>`;
+  titleElements.style.display = 'none';
+
+  if (score > 7) {
+    mainSection.innerHTML = `
+    <div class='outer-feedback'><div class='feedback'>
+      <h2>Congratulations! It looks like you'd fit right in.</h2>
+      <h3>You scored ${score}/10</h3>
+      <p>Want to retake the quiz?</p>
+      <div class="button-section">
+      <button type="reset" class="begin-button" onclick='beginQuiz()'>Yes, please!</button>
+      </div>
+    </div></div>`;
+  } else if (score > 4) {
+    mainSection.innerHTML = `
+    <div class='outer-feedback'><div class='feedback'>
+      <h2>Good effort! It's nice to know there are people like you around.</h2>
+      <h3>You scored ${score}/10</h3>
+      <p>Want to retake the quiz?</p>
+      <div class="button-section">
+      <button type="reset" class="begin-button" onclick='beginQuiz()'>Yes, please!</button>
+      </div>
+    </div></div>`;
+  } else {
+    mainSection.innerHTML = `
+    <div class='outer-feedback'><div class='feedback'>
+      <h2>Thanks for taking the quiz! Maybe visit a couple of times and then retake it.</h2>
+      <h3>You scored ${score}/10</h3>
+      <p>Want to retake the quiz?</p>
+      <div class="button-section">
+      <button type="reset" class="begin-button" onclick='beginQuiz()'>Yes, please!</button>
+      </div>
+    </div></div>`;
+  }
 }

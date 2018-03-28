@@ -32,7 +32,7 @@ background-repeat: no-repeat;
 
 /* navigation area */
 header nav {
-background-color: #F6B942;
+background-color: #EF7005;
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -50,6 +50,15 @@ padding-bottom: 5px;
 
 header > nav > a{
 padding-left: 40px;
+text-decoration: none;
+text-align: center;
+align-items: center;
+display: flex;
+color: white;
+font-size: 25px;
+
+
+
   }
 
   header .fa-home:hover{
@@ -105,8 +114,8 @@ h2 {
 /* all buttons */
 
 button {
- font-size: 1em;
- background:#F6B942;
+ font-size: 30px;
+ background:#EF7005;
  border:none;
  color: white;
  padding: 5px 10px;
@@ -135,7 +144,7 @@ button:hover{
   width: 50vw;
   margin: auto;
   color: white;
-  background-color: #8DAE86;
+  background-color: #0B7F01;
   margin-top: 89px;
   margin-bottom: 100px;
 
@@ -155,7 +164,7 @@ fieldset {
 
 }
 
- #flex-label{
+ .flex-label{
    display: flex;
    align-items:flex-start;
    text-align: left;
@@ -168,7 +177,7 @@ fieldset {
  }
 input[type=radio]{
   margin-right: 12px;
-  
+
 
 }
 
@@ -206,7 +215,7 @@ input[type=radio]{
    text-align: center;
    width: 50vw;
    color: white;
-   background-color: #8DAE86;
+   background-color: #0B7F01;
    margin-top: 89px;
    margin-bottom: 100px;
 

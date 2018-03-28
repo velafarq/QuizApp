@@ -117,31 +117,34 @@ const questionTemplate = (questionNum) => {
       <h2>${data[questionNum].question}</h2>
       </div>
     <form id='questionForm'>
-    <fieldset name='answers'>
+    <fieldset name='answers' id='answers'>
+    
     <div class='fieldset'>
-      <label id='flex-label'>
-        <input type="radio" id="1" name="answers" value='${data[questionNum].answer1}' required>
+
+      <label class='flex-label' aria-labelledby='answers'>
+        <input type="radio" id="1" aria-labelledby='answers' name="answers" value='${data[questionNum].answer1}' required>
         <span>${data[questionNum].answer1}</span>
       </label>
 
 
-      <label id='flex-label'>
-        <input type="radio" id="2" name="answers" value='${data[questionNum].answer2}' required>
+      <label class='flex-label' aria-labelledby='answers'>
+        <input type="radio" id="2" aria-labelledby='answers' name="answers" value='${data[questionNum].answer2}' required>
         <span>${data[questionNum].answer2}</span>
       </label>
 
 
-      <label id='flex-label'>
-          <input type="radio" id="3" name="answers" value='${data[questionNum].answer3}' required>
+      <label class='flex-label' aria-labelledby='answers'>
+          <input type="radio" id="3" aria-labelledby='answers' name="answers" value='${data[questionNum].answer3}' required>
           <span>${data[questionNum].answer3}</span>
       </label>
 
 
-      <label id='flex-label'>
-          <input type="radio" id="4" name="answers" value='${data[questionNum].answer4}' required>
+      <label class='flex-label' aria-labelledby='answers'>
+          <input type="radio" id="4" aria-labelledby='answers' name="answers" value='${data[questionNum].answer4}' required>
           <span>${data[questionNum].answer4}</span>
       </label>
   </div>
+
     </fieldset>
 
     <div class='info'>

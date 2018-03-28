@@ -112,13 +112,13 @@ let score = 0;
 
 const questionTemplate = (questionNum) => {
   return `
-    <section class="container" id='${questionNum}'>
+    <section class="container" id='${questionNum}' role='region'>
     <div class='info'>
       <h2>${data[questionNum].question}</h2>
       </div>
     <form id='questionForm'>
     <fieldset name='answers'>
-
+    <div class='fieldset'>
       <label id='flex-label'>
         <input type="radio" id="1" name="answers" value='${data[questionNum].answer1}' required>
         <span>${data[questionNum].answer1}</span>
@@ -141,7 +141,7 @@ const questionTemplate = (questionNum) => {
           <input type="radio" id="4" name="answers" value='${data[questionNum].answer4}' required>
           <span>${data[questionNum].answer4}</span>
       </label>
-
+  </div>
     </fieldset>
 
     <div class='info'>
@@ -253,6 +253,7 @@ function finalFeedback() {
     <div class='outer-feedback'><div class='feedback'>
       <h2>Congratulations!</h2>
       <h2>It looks like you would fit right in.</h2>
+      <img class='feedback-image' src='https://images.pexels.com/photos/40756/lion-safari-afika-landscape-40756.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb' alt='Two lions'>
       <h3>You scored ${score}/10</h3>
       <p>Want to retake the quiz?</p>
       <div class="button-section">
@@ -264,6 +265,7 @@ function finalFeedback() {
     <div class='outer-feedback'><div class='feedback'>
       <h2>Good effort!</h2>
       <h2>It's nice to know there are people like you around.</h2>
+      <img class='feedback-image' src='https://images.pexels.com/photos/259335/pexels-photo-259335.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb' alt='A group of meerkats'>
       <h3>You scored ${score}/10</h3>
       <p>Want to retake the quiz?</p>
       <div class="button-section">
@@ -275,6 +277,7 @@ function finalFeedback() {
     <div class='outer-feedback'><div class='feedback'>
       <h2>Thanks for taking the quiz!</h2>
       <h2>Maybe visit a couple of times and then retake it.</h2>
+      <img class='feedback-image' src='https://images.pexels.com/photos/259447/pexels-photo-259447.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb' alt='Aerial view of Cape Town'>
       <h3>You scored ${score}/10</h3>
       <p>Want to retake the quiz?</p>
       <div class="button-section">

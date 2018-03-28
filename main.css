@@ -130,7 +130,7 @@ button:hover{
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 50vw;
   margin: auto;
@@ -143,23 +143,32 @@ button:hover{
 
 fieldset {
   border: none;
-  display: flex;
   align-items: center;
-  flex-direction: row;
-  justify-content: flex-start;
+  text-align: center;
+  margin: auto;
+
+}
+.fieldset {
+  text-align: left;
+  align-items: center;
   margin: auto;
 
 }
 
  #flex-label{
    display: flex;
-   align-items:center;
+   align-items:flex-start;
+   text-align: left;
+   align-items: center;
    padding-top: 15px;
    padding-bottom: 15px;
+   margin: auto;
    cursor: pointer;
+
  }
 input[type=radio]{
   margin-right: 12px;
+  
 
 }
 
@@ -200,6 +209,13 @@ input[type=radio]{
    background-color: #8DAE86;
    margin-top: 89px;
    margin-bottom: 100px;
+
+ }
+
+ .feedback-image {
+   border-radius: 50%;
+   height: 20vh;
+
 
  }
 
